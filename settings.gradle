@@ -1,2 +1,8 @@
 rootProject.name = 'multiProjectGradle'
 
+include 'database'
+include 'service'
+include 'web'
+include 'common'
+include 'common:core'
+include 'common:util'
