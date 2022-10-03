@@ -11,10 +11,29 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation project(":service")
+
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }
 
 test {
     useJUnitPlatform()
 }
+
+// так меняем название war-файла
+
+war {
+    archiveName "lirik.war"
+}
+
+// Задача, которая скопирует наш war-файл в папку с tomcat и запустит ее
+
+task deployTomcat (type: Copy){
+    from(war.archiveFile.get())
+    into("/Users/anduser/study_JAVA/apache-tomcat-10.0.23/webapps")
+}
+
+deployTomcat.dependsOn war
+assemble.dependsOn deployTomcat
