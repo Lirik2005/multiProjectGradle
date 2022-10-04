@@ -1,6 +1,11 @@
+
+
 plugins {
     id 'java-library'
+    id 'custom-lirik'
 }
+
+//apply plugin: com.lirik.plugin.CustomPlugin
 
 group 'org.lirik'
 version '1.0'

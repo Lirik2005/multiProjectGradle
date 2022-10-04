@@ -1,4 +1,4 @@
-package ocm.lirik.service;
+package com.lirik.service;
 
 import com.lirik.dao.UserDao;
 import com.lirik.model.User;
