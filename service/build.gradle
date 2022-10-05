@@ -1,4 +1,4 @@
-
+import com.lirik.task.ReleaseTask
 
 plugins {
     id 'java-library'
@@ -23,4 +23,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+ext {
+    release = true
+}
+
+task makeRelease(type: ReleaseTask) {
+    release = project.release
+    releaseFile = new File("$rootDir/script.gradle")
 }
